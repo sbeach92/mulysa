@@ -85,18 +85,44 @@
       </tr>
     </table>
     {% endfor %}
-    <h2>{% trans 'Custom invoices' %}</h2>
+    <h2>{% trans 'Invoices' %}</h2>
     <table class="table table-responsive-sm">
       <tr>
-        <th>{% trans 'Date' %}</th>
-        <th>{% trans 'Service' %}</th>
+        <th>{% trans 'Services' %}</th>
         <th>{% trans 'Amount' %}</th>
         <th>{% trans 'Reference number' %}</th>
         <th>{% trans 'Paid' %}</th>
+        <th>{% trans 'Pays allso' %}</th>
       </tr>
+      {% for subscription in userdetails.servicesubscriptions %}
+        {% if subscription.paid_by_subscriptions %}
+          <tr class="strikeout">
+        {% else %}
+          <tr>
+        {% endif %}
+        <td>{{ subscription.service.days_per_payment }} {% trans 'days of' %} {{ subscription.service.name }}</td>
+        <td>{{ subscription.service.cost_string }}</td>
+        <td>{{ subscription.reference_number|default_if_none:"-" }}</td>
+        <td>
+          {% if subscription.last_payment|default_if_none:"-" %}
+            <a href="{% url 'banktransaction-view' subscription.last_payment.id %}">{{ subscription.last_payment.date }}</a>
+          {% else %}
+            {% trans 'Not paid yet' %}
+          {% endif %}
+
+        </td>
+        <td>{{ subscription.service.pays_also_service|default_if_none:"-" }}</td>
+        </tr>
+      {% endfor %}
       {% for custominvoice in userdetails.custominvoices %}
       <tr>
-        <td>{{ custominvoice.created }}</td>
+        <th>{% trans 'Custom invoices' %}</th>
+        <th>{% trans 'Amount' %}</th>
+        <th>{% trans 'Reference number' %}</th>
+        <th>{% trans 'Paid' %}</th>
+        <th>{% trans 'Pays allso' %}</th>
+      </tr>
+      <tr>
         <td>{{ custominvoice.days }} {% trans 'days of' %} {{ custominvoice.subscription.service.name }}</td>
         <td>{{ custominvoice.amount }}</td>
         <td>{{ custominvoice.reference_number }}</td>
@@ -107,6 +133,7 @@
             {% trans 'Not paid yet' %}
           {% endif %}
         </td>
+        <td>{{ custominvoice.subscription.service.pays_also_service|default_if_none:"-" }}</td>
       </tr>
       {% endfor %}
     </table>
