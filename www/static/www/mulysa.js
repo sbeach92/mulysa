@@ -5,3 +5,8 @@ document.getElementById("language-select").addEventListener("change", function()
 
 // higlight required fields in all forms
 $('form input[required]').prev('label').addClass('font-weight-bold').after('<span class="text-danger"> *</span>');
+
+$(document).ready(function () {
+    $('#ledger').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
