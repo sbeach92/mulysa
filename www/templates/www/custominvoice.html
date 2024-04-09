@@ -4,13 +4,11 @@
 <h1>
 {% trans 'Custom invoices'%}
 </h1>
+<div class="alert alert-primary" role="alert" id="custom_invoice_notification">
 <p>
-  {% blocktrans %}
-  <strong>NOTE:</strong> Custominvoices are meant for special situations where you are paying for 
-  multiple months using one transaction. We suggest using monthly recurring 
-  payments for all regular situations.
-  {% endblocktrans %}
+  {% blocktrans %}<strong>NOTE:</strong> Custominvoices are meant for <strong>special</strong> situations where you are paying for <strong>multiple months</strong> using one transaction. We suggest using monthly recurring payments for all regular situations.{% endblocktrans %}
 </p>
+</div>
 <form action="{% url 'custominvoice' %}" method="post" enctype=multipart/form-data>
     {% csrf_token %}
     <table border="0">

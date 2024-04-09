@@ -41,3 +41,43 @@ body > main {
   height: 400px;
   width: 100%;
 }
+
+.table{
+
+  td,
+  th {
+    position: relative;
+    margin: auto;
+    vertical-align: middle;
+  }
+
+  thead th {
+    vertical-align: middle;
+  }
+
+  p {
+    margin: auto
+  }
+}
+#tr-strikeout td:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 2px solid #111;
+  width: 100%;
+}
+
+#custom_invoice_notification {
+  animation: shake 0.5s;
+  animation-iteration-count: 2;
+  width: fit-content;
+}
+
+@keyframes shake {
+  0% { transform: translate(0x, 0x) rotate(1deg); }
+  25% { transform: translate(10px, 0px) rotate(0deg); }
+  50% { transform: translate(0px, 0px) rotate(-1deg); }
+  75% { transform: translate(10px, 0px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(1deg); }
+  }

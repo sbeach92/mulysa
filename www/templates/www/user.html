@@ -76,9 +76,6 @@
               {% blocktrans with ref=subscription.reference_number cost=subscription.service.cost_string %}This service is paid with reference number <strong>{{ ref }}</strong>
                 to bank account <strong>{{bank_iban}}</strong> (recurring monthly payments). <br />Service price is <strong>{{ cost }}</strong>.{% endblocktrans %}<br/>
             </p>
-            <p>{% blocktrans %}To pay for multiple months at once, you can create a custom invoice. {% endblocktrans %}
-              <a href="{% url 'custominvoice' %}">{% trans 'Create and view custom invoices' %}</a>
-            </p>
             {% endif %}
           {% endif %}
         </td>
@@ -92,14 +89,10 @@
         <th>{% trans 'Amount' %}</th>
         <th>{% trans 'Reference number' %}</th>
         <th>{% trans 'Paid' %}</th>
-        <th>{% trans 'Pays allso' %}</th>
+        <th>{% trans 'Pays also' %}</th>
       </tr>
       {% for subscription in userdetails.servicesubscriptions %}
-        {% if subscription.paid_by_subscriptions %}
-          <tr class="strikeout">
-        {% else %}
-          <tr>
-        {% endif %}
+        <tr {% if subscription.paid_by_subscriptions %} id="tr-strikeout"{% endif %}>
         <td>{{ subscription.service.days_per_payment }} {% trans 'days of' %} {{ subscription.service.name }}</td>
         <td>{{ subscription.service.cost_string }}</td>
         <td>{{ subscription.reference_number|default_if_none:"-" }}</td>
@@ -119,8 +112,8 @@
         <th>{% trans 'Custom invoices' %}</th>
         <th>{% trans 'Amount' %}</th>
         <th>{% trans 'Reference number' %}</th>
-        <th>{% trans 'Paid' %}</th>
-        <th>{% trans 'Pays allso' %}</th>
+        <th>{% trans 'Last payment' %}</th>
+        <th>{% trans 'Pays also' %}</th>
       </tr>
       <tr>
         <td>{{ custominvoice.days }} {% trans 'days of' %} {{ custominvoice.subscription.service.name }}</td>
@@ -138,21 +131,10 @@
       {% endfor %}
     </table>
     <p>
-      <a href="{% url 'custominvoice' %}">{% trans 'Create and view custom invoices' %}</a>
+      <p>{% trans 'To pay services for multiple months at one banktransaction, you can create a custom invoice. ' %}
+        <a href="{% url 'custominvoice' %}">{% trans 'Create and view custom invoices' %}</a>
+      </p>
     </p>
-    <h2>{% trans 'Activity log' %}</h2>
-    <table class="table table-sm table-responsive-sm">
-      <tr>
-        <th>{% trans 'Date' %}</th>
-        <th>{% trans 'Message' %}</th>
-      </tr>
-      {% for entry in userdetails.userslog %}
-      <tr>
-        <td>{{ entry.date }}</td>
-        <td>{{ entry.message }}</td>
-      </tr>
-      {% endfor %}
-    </table>
 
     <h2>{% trans 'Bank transactions' %}</h2>
     <p>{% trans 'Transactions are not processed in real time. Newest bank transactions uploaded to the system' %}: {{ last_transaction }}</p>
@@ -177,6 +159,21 @@
       </tr>
       {% endfor %}
     </table>
+
+    <h2>{% trans 'Activity log' %}</h2>
+    <table class="table table-sm table-responsive-sm">
+      <tr>
+        <th>{% trans 'Date' %}</th>
+        <th>{% trans 'Message' %}</th>
+      </tr>
+      {% for entry in userdetails.userslog %}
+      <tr>
+        <td>{{ entry.date }}</td>
+        <td>{{ entry.message }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
   {% endif %}
 </div>
 {% endblock %}
