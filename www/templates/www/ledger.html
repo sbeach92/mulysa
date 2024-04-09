@@ -1,5 +1,8 @@
 {% extends "www/base.html" %}
 {% load i18n %}
+{% load static %}
+{% load tag_utils %}
+
 {% block content %}
 <h2>Bank ledger</h2>
 <a href="{% url 'ledger' %}">All</a> |
@@ -28,7 +31,7 @@
     <td>{{ transaction.sender }}</td>
     <td>{{ transaction.reference_number|default_if_none:"" }}</td>
     <td>{{ transaction.message }}</td>
-    <td>{{ transaction.comment|default_if_none:"" }}</td>
+    <td>{{ transaction.comment|default_if_none:""|strip|linebreaks }}</td>
     <td align="center">{% if transaction.has_been_used %}✔{% endif %}</td>
     <td>
       {% if transaction.user %}
@@ -44,4 +47,15 @@
   </tr>
   {% endfor %}
 </table>
+
+<script type="text/javascript" src="{% static 'www/datatables.net/datatables.min.js' %}"></script>
+<script>
+  $(function() {
+    $('#ledger').DataTable()
+  })
+  </script>
 {% endblock %}
+
+
+
+

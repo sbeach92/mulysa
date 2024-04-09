@@ -1,8 +1,9 @@
 {% extends "www/base.html" %}
 {% load i18n %}
+{% load static %}
 {% block content %}
 <h2>{% trans 'Custom invoices' %}</h2>
-<table class="table table-striped table-responsive-sm">
+<table id="table_custominvoices" class="table table-striped table-responsive-sm">
   <thead class="thead-light">
     <tr>
       <th>Created</th>
@@ -43,4 +44,11 @@
   </tr>
   {% endfor %}
 </table>
+
+<script type="text/javascript" src="{% static 'www/datatables.net/datatables.min.js' %}"></script>
+<script>
+  $(function() {
+    $('#table_custominvoices').DataTable()
+  })
+  </script>
 {% endblock %}

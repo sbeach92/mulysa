@@ -2,12 +2,13 @@
 {% load i18n %}
 {% load bootstrap4 %}
 {% block content %}
+{% load static %}
 <h2>
         {% trans 'Member applications' %}
 </h2>
 
 {% bootstrap_messages %}
-<table class="table table-striped table-responsive-sm">
+<table id="table_applications" class="table table-striped table-responsive-sm">
     <thead class="thead-light">
         <th>{% trans 'Date' %}</th>
         <th>{% trans 'Name' %}</th>
@@ -38,4 +39,11 @@
     </tr>
     {% endfor %}
 </table>
+
+<script type="text/javascript" src="{% static 'www/datatables.net/datatables.min.js' %}"></script>
+<script>
+  $(function() {
+    $('#table_applications').DataTable()
+  })
+  </script>
 {% endblock %}
