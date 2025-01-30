@@ -124,7 +124,7 @@
         <th>{% trans 'Pays also' %}</th>
       </tr>
       {% for subscription in userdetails.servicesubscriptions %}
-        <tr {% if subscription.paid_by_subscriptions %} id="tr-strikeout"{% endif %}>
+        <tr {% if subscription.paid_by_subscriptions %} class="strikeout" {% endif %}>
         <td>{{ subscription.service.days_per_payment }} {% trans 'days of' %} {{ subscription.service.name }}</td>
         <td>{{ subscription.service.cost_string }}</td>
         <td>{{ subscription.reference_number|default_if_none:"-" }}</td>
@@ -139,7 +139,7 @@
         <td>{{ subscription.service.pays_also_service|default_if_none:"-" }}</td>
         </tr>
       {% endfor %}
-      {% for custominvoice in userdetails.custominvoices %}
+      {% if userdetails.custominvoices|default_if_none:"-" %}
       <tr>
         <th>{% trans 'Custom invoices' %}</th>
         <th>{% trans 'Amount' %}</th>
@@ -147,6 +147,8 @@
         <th>{% trans 'Last payment' %}</th>
         <th>{% trans 'Pays also' %}</th>
       </tr>
+      {% endif %}
+      {% for custominvoice in userdetails.custominvoices %}
       <tr>
         <td>{{ custominvoice.days }} {% trans 'days of' %} {{ custominvoice.subscription.service.name }}</td>
         <td>{{ custominvoice.amount }}</td>
