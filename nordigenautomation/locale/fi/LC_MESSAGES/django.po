@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-08 10:45+0000\n"
+"POT-Creation-Date: 2025-04-04 19:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,73 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: nordigenautomation/admin.py:55
+#: nordigenautomation/admin.py
 msgid "Do requisition"
 msgstr ""
 
-#: nordigenautomation/admin.py:57
-msgid ""
-"Initialize requisition, first time will just create a new requisition and "
-"successive clicks will create a new requisition and deprecate all the old "
-"ones"
+#: nordigenautomation/admin.py
+msgid "Initialize requisition, first time will just create a new requisition and successive clicks will create a new requisition and deprecate all the old ones"
 msgstr ""
 
-#: nordigenautomation/admin.py:61
+#: nordigenautomation/admin.py
 msgid "complete settings to get actions"
 msgstr ""
 
-#: nordigenautomation/models.py:59
+#: nordigenautomation/models.py
 msgid "Nordigen API id"
 msgstr ""
 
-#: nordigenautomation/models.py:64
+#: nordigenautomation/models.py
 msgid "Nordigen API key"
 msgstr ""
 
-#: nordigenautomation/models.py:69
+#: nordigenautomation/models.py
 msgid "Nordigen API country"
 msgstr ""
 
-#: nordigenautomation/models.py:75
+#: nordigenautomation/models.py
 msgid "Nordigen API Institution"
 msgstr ""
 
-#: nordigenautomation/models.py:82
+#: nordigenautomation/models.py
 msgid "Creation date"
 msgstr ""
 
-#: nordigenautomation/models.py:83
+#: nordigenautomation/models.py
 msgid "Automatically set to now"
 msgstr ""
 
-#: nordigenautomation/models.py:87
+#: nordigenautomation/models.py
 msgid "Last modified datetime"
 msgstr ""
 
-#: nordigenautomation/models.py:88
+#: nordigenautomation/models.py
 msgid "Automatically updated"
 msgstr ""
 
-#: nordigenautomation/models.py:169
+#: nordigenautomation/models.py
 msgid "Nonce for verification purposes"
 msgstr ""
 
-#: nordigenautomation/models.py:174
+#: nordigenautomation/models.py
 msgid "Nordigen URL to handle the requisition"
 msgstr ""
 
-#: nordigenautomation/models.py:179
+#: nordigenautomation/models.py
 msgid "Nordigen Requisition id"
 msgstr ""
 
-#: nordigenautomation/models.py:185
+#: nordigenautomation/models.py
 msgid "How long this requisition id is valid untill"
 msgstr ""
 
-#: nordigenautomation/models.py:190
+#: nordigenautomation/models.py
 msgid "Is the requisition valid (user has completed the operation required)"
 msgstr ""
 
-#: nordigenautomation/models.py:195
+#: nordigenautomation/models.py
 msgid "Deprecated requisition"
 msgstr ""

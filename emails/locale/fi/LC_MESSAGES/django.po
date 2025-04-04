@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-02 15:39+0000\n"
+"POT-Creation-Date: 2025-04-04 19:39+0000\n"
 "PO-Revision-Date: 2020-09-26 14:09+0300\n"
 "Last-Translator: Sami Olmari <sami@olmari.fi>\n"
 "Language-Team: \n"
@@ -18,66 +18,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.1\n"
 
-#: emails/admin.py:40
+#: emails/admin.py
 msgid "Show browser version"
 msgstr "Näytä selaimen versio"
 
-#: emails/admin.py:47 emails/templates/admin/send-email.html:13
+#: emails/admin.py emails/templates/admin/send-email.html
 msgid "Send now"
 msgstr "Lähetä heti"
 
-#: emails/admin.py:85
+#: emails/admin.py
 msgid "Send email"
 msgstr "Lähetä email"
 
-#: emails/models.py:22 emails/templates/admin/send-email.html:8
+#: emails/models.py emails/templates/admin/send-email.html
 msgid "Subject"
 msgstr "Aihe"
 
-#: emails/models.py:24
-msgid ""
-"Descriptive subject for the email. Finnish / English both should be written "
-"here"
-msgstr ""
-"Kuvaava aihe sähköpostille. Sekä suomen- että englanninkieliset versiot "
-"tulisi kirjoittaa tähän"
+#: emails/models.py
+msgid "Descriptive subject for the email. Finnish / English both should be written here"
+msgstr "Kuvaava aihe sähköpostille. Sekä suomen- että englanninkieliset versiot tulisi kirjoittaa tähän"
 
-#: emails/models.py:34
+#: emails/models.py
 msgid "Content"
 msgstr "Sisältö"
 
-#: emails/models.py:36
-msgid ""
-"Content of the email. All emails will start with default 'View this message "
-"in browser' and end with 'You are receiving this message because') texts"
-msgstr ""
-"Sähköpostin sisältö. Kaikki viestit alkavat 'Katsele viestiä selaimessa' ja "
-"loppuvat 'Sait tämän viestin koska' teksteillä"
+#: emails/models.py
+msgid "Content of the email. All emails will start with default 'View this message in browser' and end with 'You are receiving this message because') texts"
+msgstr "Sähköpostin sisältö. Kaikki viestit alkavat 'Katsele viestiä selaimessa' ja loppuvat 'Sait tämän viestin koska' teksteillä"
 
-#: emails/models.py:43
+#: emails/models.py
 msgid "Creation date"
 msgstr "Luontipäivä"
 
-#: emails/models.py:48
+#: emails/models.py
 msgid "Last modified datetime"
 msgstr "Muokattu viimeksi päiväys"
 
-#: emails/models.py:52
+#: emails/models.py
 msgid "Datetime the message was sent"
 msgstr "Viestin lähetyksen päiväys"
 
-#: emails/templates/admin/send-email.html:9
+#: emails/templates/admin/send-email.html
 msgid "Body"
 msgstr "Sisältö"
 
-#: emails/templates/admin/send-email.html:17
+#: emails/templates/admin/send-email.html
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: emails/templates/mail_content_and_post.html:5
-#: emails/templates/mail_content_and_post.txt:5
+#: emails/templates/mail_content_and_post.html
+#: emails/templates/mail_content_and_post.txt
 #, python-format
-msgid ""
-"You are receiving this email because you are registered member of "
-"%(SITENAME)s"
+msgid "You are receiving this email because you are registered member of %(SITENAME)s"
 msgstr "Sait tämän viestin koska olet %(SITENAME)s:n jäsen"
