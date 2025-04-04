@@ -139,6 +139,7 @@
         <td>{{ subscription.service.pays_also_service|default_if_none:"-" }}</td>
         </tr>
       {% endfor %}
+      {% if hide_custom_invoice != True %}
       {% if userdetails.custominvoices|default_if_none:"-" %}
       <tr>
         <th>{% trans 'Custom invoices' %}</th>
@@ -163,12 +164,15 @@
         <td>{{ custominvoice.subscription.service.pays_also_service|default_if_none:"-" }}</td>
       </tr>
       {% endfor %}
+      {% endif %}
     </table>
+    {% if hide_custom_invoice != True %}
     <p>
       <p>{% trans 'To pay services for multiple months at one banktransaction, you can create a custom invoice. ' %}
         <a href="{% url 'custominvoice' %}">{% trans 'Create and view custom invoices' %}</a>
       </p>
     </p>
+    {% endif %}
 
     <h2>{% trans 'Bank transactions' %}</h2>
     <p>{% trans 'Transactions are not processed in real time. Newest bank transactions uploaded to the system' %}: {{ last_transaction }}</p>
